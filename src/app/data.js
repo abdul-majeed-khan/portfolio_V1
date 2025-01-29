@@ -1,0 +1,45 @@
+export const projects = [
+	{
+		title: 'Portfolio',
+		description: `Portfolio website, inspiration from the portfolio of Dennis Snellenberg.`,
+		description2: `Tech Stack: NextJs, Sass, JavaScript, Framer Motion and GSAP.`,
+		description3: `Ensured full responsiveness across various devices for optimal user engagement. But may vary because of development.`,
+		src: 'circles.jpg',
+		link: '',
+		color: '#cbcbcb',
+	},
+	{
+		title: 'template-next-15rc',
+		description: `Comprehensive App Template: This is a production-ready app template with all essential tools and features, allowing users to easily fork and build apps.`,
+		description2: `Tech Stack: It includes Postgres DB with Prisma ORM, Lucia authentication, Vercel DB, Shadcn UI components, Tailwind CSS, and real-time form validation using React Hook Form & Zod.`,
+		description3: `Additional Features: The app offers a functional search field, and supports light, dark, and system themes for user customization.`,
+		src: 'triangle.jpg',
+		link: '',
+		color: '#cbcbcb',
+	},
+	{
+		title: 'DocsNexGen',
+		description: `Tech Stack: The app uses Next.js, TypeScript, Liveblocks, Lexical Editor, ShadCN, and Tailwind CSS for its architecture and styling.`,
+		description2: `Features: It offers GitHub, Google, and LinkedIn authentication via NextAuth, a real-time collaborative text editor, document management (create, delete, share, list), a commenting system, and real-time presence indicators.`,
+        description3: `Additional Features: Includes user notifications, responsive design, and modular code architecture for scalability and maintainability.`,
+		src: 'planet-1.jpg',
+		link: '',
+		color: '#cbcbcb',
+	},
+	{
+		title: 'organicherbal.in',
+		description: `Designing and developing a user-friendly and visually appealing website for a business specializing in raw Ayurvedic herbs 
+                  and spices, enhancing online presence and customer engagement.`,
+		src: 'ai.jpg',
+		link: '',
+		color: '#cbcbcb',
+	},
+	// {
+	// 	title: '',
+	// 	description: ``,
+	// 	description2: ``,
+	// 	src: 'nexes.jpg',
+	// 	link: '',
+	// 	color: '#c5c5c5',
+	// },
+];
