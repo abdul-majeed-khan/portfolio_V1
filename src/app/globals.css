@@ -10,3 +10,74 @@ body{
         overflow: visible;
     }
 }
+
+/* Custom cursor styles */
+.custom-cursor {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  border: 2px solid #ea7500;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s;
+  box-shadow: 0 0 15px #ea7500, 0 0 5px #fff;
+  mix-blend-mode: screen;
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 115, 0, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+  transition: transform 0.1s ease;
+  box-shadow: 0 0 10px rgba(255, 123, 0, 0.8);
+  mix-blend-mode: screen;
+}
+
+.custom-cursor.hovering {
+  width: 24px;
+  height: 24px;
+  border-color: #c1ff5d;
+  box-shadow: 0 0 15px #c1ff5d, 0 0 5px #fff;
+  transition: all 0.3s ease;
+}
+
+@keyframes ripple {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+  }
+}
+
+.ripple {
+  position: fixed;
+  border: 1px solid #ea7500;
+  border-radius: 50%;
+  animation: ripple 0.7s linear;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9997;
+}
+
+/* Add this to your globals.css */
+html, body {
+  cursor: none !important;
+}
+
+/* You can also add this to specific elements that might need it */
+a, button, input, textarea, select, [role="button"] {
+  cursor: none !important;
+}
