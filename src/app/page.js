@@ -10,6 +10,7 @@ import { projects } from './data';
 import Projects from '../components/Projects';
 import { useRef } from 'react';
 import Description from '../components/Description';
+import SkillsSection from '../components/Skills';
 import Contact from '../components/Contact';
 
 export default function Home() {
@@ -54,6 +55,7 @@ export default function Home() {
       </AnimatePresence>
       <Landing />
       <Description />
+      <SkillsSection />
       {
         projects.map( (project, i) => {
           const targetScale = 1 - ( (projects.length - i) * 0.05);
