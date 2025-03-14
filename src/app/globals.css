@@ -5,7 +5,7 @@ body{
     margin: 0px;
     overflow: hidden; 
     cursor: wait;
-    background-color: #c5c5c5;
+    background-color: #101010;
     @media screen and (max-width: 768px){
         overflow: visible;
     }
