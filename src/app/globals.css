@@ -5,7 +5,12 @@ body{
     margin: 0px;
     overflow: hidden; 
     cursor: wait;
-    background-color: #101010;
+    background-image: url('/images/page1.png');
+    background-size: 100% 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    min-height: 100vh; 
     @media screen and (max-width: 768px){
         overflow: visible;
     }
