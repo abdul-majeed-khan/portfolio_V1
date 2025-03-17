@@ -266,7 +266,7 @@
     .aboutContent {
       width: 100%;
       max-width: 1200px;
-      color: white;
+      color: rgb(207, 207, 207);
       padding: 2rem;
       margin: 10vh auto 0;
       text-align: center; 
@@ -413,7 +413,7 @@
       font-family: Lexend;
       font-size: 1.4rem;
       line-height: 1.8;
-      color: white;
+      color: rgb(207, 207, 207);
       
       @media screen and (max-width: 768px) {
         font-size: 1rem;
@@ -442,6 +442,7 @@
         
         &:hover {
           background: rgba(255, 170, 0, 0.4);
+          color: white;
           transform: translateY(-3px) scale(1.05);
           box-shadow: 0 5px 15px rgba(193, 255, 93, 0.2);
         }
