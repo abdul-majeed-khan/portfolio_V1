@@ -1,15 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
-
 .landing{
     position: relative;
     display: flex;
-    height: 100vh;
-    overflow: hidden;
-    background-color: #000;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    
     @media screen and (max-width: 1024px){
       margin: auto;
       padding: auto;
+    }
+
+    // Combined Section - preserves all original styles
+    .combinedSection {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      height: auto;
     }
 
     img{
@@ -47,9 +56,12 @@
     }
     
     .sliderContainer{
-      position: absolute;
-      top: calc(100vh - 300px);
+      position: relative;
+      width: 100%;
+      height: 300px;
+      margin-top: 70vh;
     }
+    
     .slider{
       position: relative;
       white-space: nowrap;
@@ -74,6 +86,7 @@
         }
         p:nth-child(2){
           font-size: 40px;
+          top: 30px;
           user-select: none;
         }
       }
@@ -91,8 +104,9 @@
         }
       }
     }
+    
     .slider p{
-      color: white;
+      color: rgb(207, 207, 207);
       font-family: Lexend;
       position: relative;
       margin: 0px;
@@ -102,73 +116,21 @@
       cursor: default;
       user-select: none;
     }
-    .slider p:hover {
-        background: linear-gradient(180deg, #ffffff 0%, #c1ff5dea 100%);
-        color:transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
-        transition: color 0.5s ease-in-out;
-      }
+    
     .slider p:nth-of-type(2){
       position: absolute;
       left: 100%;
       top: 0;
     }
 
-    .sliderContainer{
-      position: absolute;
-      top: calc(100vh - 300px);
-    }
-    
-    .slider{
-      position: relative;
-      white-space: nowrap;
-      @media screen and (max-width: 1024px){
-        width: auto;
-        margin: 190px;
-        p:nth-child(1){
-          font-size: 80px;
-          user-select: none;
-        }
-        p:nth-child(2){
-          font-size: 80px;
-          user-select: none;
-        }
-      }
-      @media screen and (max-width: 768px){
-        width: auto;
-        p:nth-child(1){
-          font-size: 40px;
-          top: 30px;
-          user-select: none;
-        }
-        p:nth-child(2){
-          font-size: 40px;
-          top: 30px;
-          user-select: none;
-        }
-      }
-      @media screen and (max-width: 378px){
-        width: auto;
-        p:nth-child(1){
-          font-size: 40px;
-          top: -400px;
-          user-select: none;
-        }
-        p:nth-child(2){
-          font-size: 40px;
-          top: -400px;
-          user-select: none;
-        }
-      }
-    }
-
     .description{
       position: absolute;
-      top: 40%;
+      top: 22%;
       left: 70%;
-      color: white;
+      color: rgb(207, 207, 207);
       font-weight: 300;
+      z-index: 5;
+      
       p{
         font-family: Lexend;
         margin: 0px;
@@ -177,60 +139,52 @@
         font-weight: 500;
         user-select: none;
       }
+      
       p:hover{
         cursor: default;      
-        background: linear-gradient(45deg, #dafff8 0%, #c1ff5dcd 100%);
+        background: linear-gradient(45deg, #212121 0%, #ffbb00cd 100%);
         color: transparent;
         background-clip: text;
         transition: color 0.3s ease-in-out;
-        text-shadow: 2px 1px rgba($color: #000000bb, $alpha: 0.7);
+        text-shadow: 2px 1px rgba($color: #ffbb00bb, $alpha: 0.7);
         user-select: none;
       }
+      
       svg{
         transform: scale(2);
         margin-bottom: 10px;
       }
-    }
-    @media screen and (max-width: 768px) {
-      .description{
-        font-size: 12px;
+      
+      @media screen and (max-width: 768px) {
         top: 80%;
         left: 10%;
+        
+        p{
+          font-size: 20px;
+          user-select: none;
+        }
       }
     }
-      @media screen and (max-width: 768px) {
-      .description p{
-        font-size: 20px;
-        user-select: none;
-      }
-    }
+    
     .imageContainer {
-      position: relative;
+      position: absolute;
       width: 100%;
-      height: 100%;
+      height: 100vh;
       z-index: 3;
     }
 
-    .backgroundImage {
-      position: absolute !important;
-      z-index: 0; // Ensures it stays behind everything
-      object-fit: cover; // This will make it cover the full container
-      opacity: 0.5; // Adjust this if you want it more subtle/visible
-    }
-    
     .hoverTarget {
       position: absolute;
       width: 300px;
       height: 300px;
       left: 50%;
       top: 500px;
-      
       transform: translate(-50%, 0);
       z-index: 4;
       cursor: pointer;
     }
     
-    .normalImage, .glowImage {
+    .normalImage {
       position: absolute !important;
       transition: opacity 0.3s ease-in-out;
     }
@@ -244,10 +198,18 @@
     .glowImage.active {
       opacity: 1;
     }
+
+    .glow {
+      margin-top: 10%;
+      z-index: -1;
+      position: relative !important;
+      transition: opacity 0.3s ease-in-out;
+      opacity: 0;
+    }
     
-    // .hoverTarget:hover ~ .glowImage {
-    //   opacity: 1;
-    // }
+    .glow.active {
+      opacity: 1;
+    }
 
     .switchContainer {
       position: absolute;
@@ -298,6 +260,207 @@
     
       &.active {
         color: #ffd700;
+      }
+    }
+
+    .aboutContent {
+      width: 100%;
+      max-width: 1200px;
+      color: white;
+      padding: 2rem;
+      margin: 10vh auto 0;
+      text-align: center; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      h2 {
+        font-family: Lexend;
+        font-size: 5rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        background: rgb(207, 207, 207);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        
+        @media screen and (max-width: 768px) {
+          font-size: 2.5rem;
+        }
+      }
+      
+      h3 {
+        font-family: Lexend;
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 2rem 0 1rem;
+        color: rgb(207, 207, 207);
+        
+        @media screen and (max-width: 768px) {
+          font-size: 1.8rem;
+        }
+      }
+    }
+
+    /* Enhanced slider styling with smoother transitions */
+
+    .sliderContainer1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      padding: 1rem 0;
+      
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+
+    .sliderLabel {
+      font-family: Lexend;
+      font-size: 1.2rem;
+      color: rgb(207, 207, 207);
+      min-width: 100px;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      pointer-events: none;
+      
+      &:last-child {
+        background: rgb(207, 207, 207);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      
+      @media screen and (max-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+
+    .techinessSlider {
+      flex: 2;
+      max-width: 300px;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 20px; /* Slightly thicker for better visibility */
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      outline: none;
+      box-shadow: inset 0 1px 3px rgb(255, 255, 255);
+      position: relative;
+      cursor: pointer;
+      z-index: 1;
+      
+      /* Add a subtle glow effect on the track */
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(193, 255, 93, 0.15), rgba(218, 255, 248, 0.15));
+        border-radius: 10px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      
+      &:hover:before {
+        opacity: 1;
+      }
+      
+      /* Thumb styling */
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #ffd700;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        
+        &:hover {
+          transform: scale(1.2);
+          background: #dafff8;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        &:active {
+          transform: scale(1.1);
+          background: #dafff8;
+        }
+      }
+    }
+
+    /* Styling for the typewriter effect with smoother transitions */
+    .aboutText {
+      margin: 2rem auto;
+      min-height: 150px;
+      text-align: center;
+      width: 100%;
+      max-width: 1100px;
+      transition: opacity 0.3s ease;
+      
+      /* These styles will apply to the typewriter component */
+      font-family: Lexend;
+      font-size: 1.4rem;
+      line-height: 1.8;
+      color: white;
+      
+      @media screen and (max-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+
+    /* Enhanced skills transitions */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: center;
+      max-width: 800px;
+      perspective: 1000px; /* For 3D effect on the spans */
+      
+      span {
+        font-family: Lexend;
+        padding: 0.5rem 1.2rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2rem;
+        font-size: 1rem;
+        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        animation: fadeIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        transform-origin: center bottom;
+        
+        &:hover {
+          background: rgba(255, 170, 0, 0.4);
+          transform: translateY(-3px) scale(1.05);
+          box-shadow: 0 5px 15px rgba(193, 255, 93, 0.2);
+        }
+        
+        @media screen and (max-width: 768px) {
+          font-size: 0.9rem;
+          padding: 0.4rem 1rem;
+        }
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px) rotateX(10deg);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
       }
     }
 }
