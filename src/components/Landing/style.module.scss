@@ -310,7 +310,7 @@
       justify-content: center;
       gap: 1rem;
       margin: 2rem 0;
-      max-width: 600px;
+      max-width: 800px;
       width: 100%;
       position: relative;
       padding: 1rem 0;
@@ -319,6 +319,7 @@
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
+        max-width: 90%; 
       }
     }
 
@@ -345,10 +346,10 @@
 
     .techinessSlider {
       flex: 2;
-      max-width: 300px;
+      max-width: 500px;
       -webkit-appearance: none;
       appearance: none;
-      height: 20px; /* Slightly thicker for better visibility */
+      height: 10px; /* Slightly thicker for better visibility */
       background: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
       outline: none;
@@ -356,6 +357,10 @@
       position: relative;
       cursor: pointer;
       z-index: 1;
+
+    @media screen and (max-width: 768px) {
+      width: 100%; /* Full width on mobile */
+    }
       
       /* Add a subtle glow effect on the track */
       &:before {
