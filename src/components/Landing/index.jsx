@@ -205,8 +205,8 @@ export default function Home() {
 								y1="0%"
 								y2="0%"
 							>
-								<stop offset="0%" stopColor="#dafff8" />
-								<stop offset="100%" stopColor="#c1ff5d" />
+								<stop offset="0%" stopColor="#ffd700" />
+								<stop offset="100%" stopColor="#ffd700" />
 							</linearGradient>
 						</defs>
 						<path
@@ -225,7 +225,7 @@ export default function Home() {
 					
 					{/* Techiness Slider */}
 					<div className={styles.sliderContainer1}>
-						<span className={styles.sliderLabel}>Less techy</span>
+						<span className={styles.sliderLabel}>Simplified</span>
 						<input 
 							type="range" 
 							min="0" 
@@ -236,7 +236,7 @@ export default function Home() {
 							className={styles.techinessSlider}
 							style={sliderFillStyle}
 						/>
-						<span className={styles.sliderLabel}>More techy</span>
+						<span className={styles.sliderLabel}>Advanced</span>
 					</div>
 
 					{/* Typewriter Effect from package */}
@@ -248,7 +248,7 @@ export default function Home() {
 									.start();
 							}}
 							options={{
-								delay: 30,
+								delay: 20,
 								cursor: '|',
 								deleteSpeed: 5,
 							}}
