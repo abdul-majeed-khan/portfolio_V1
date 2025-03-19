@@ -22,13 +22,13 @@ body{
   width: 16px;
   height: 16px;
   background: transparent;
-  border: 2px solid #ea7500;
+  border: 2px solid #ffd700;
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
   transition: width 0.2s, height 0.2s;
-  box-shadow: 0 0 15px #ea7500, 0 0 5px #fff;
+  box-shadow: 0 0 15px #ffd700, 0 0 5px #fff;
   mix-blend-mode: screen;
 }
 
@@ -36,13 +36,13 @@ body{
   position: fixed;
   width: 8px;
   height: 8px;
-  background: rgba(255, 115, 0, 0.5);
+  background: #ffd700;
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9998;
   transition: transform 0.1s ease;
-  box-shadow: 0 0 10px rgba(255, 123, 0, 0.8);
+  box-shadow: 0 0 10px #ffd700;
   mix-blend-mode: screen;
 }
 
@@ -69,7 +69,7 @@ body{
 
 .ripple {
   position: fixed;
-  border: 1px solid #ea7500;
+  border: 1px solid #ffd700;
   border-radius: 50%;
   animation: ripple 0.7s linear;
   pointer-events: none;
