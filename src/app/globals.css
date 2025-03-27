@@ -1,19 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap'); */
 
 body{
-    font-family: Lexend;
+    font-family: "Azeret Mono", monospace;
     margin: 0px;
     overflow: hidden; 
     cursor: wait;
-    background-image: url('/images/page1.png');
+    background-color: black;
+    /* background-image: url('/images/page1.png'); */
     background-size: 100% 100%; 
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed; 
-    min-height: 100vh; 
-    @media screen and (max-width: 768px){
-        overflow: visible;
-    }
+    min-height: 100vh;
 }
 
 /* Custom cursor styles */
@@ -49,8 +48,8 @@ body{
 .custom-cursor.hovering {
   width: 24px;
   height: 24px;
-  border-color: #c1ff5d;
-  box-shadow: 0 0 15px #c1ff5d, 0 0 5px #fff;
+  border-color: #ffd700;
+  box-shadow: 0 0 15px #ffd700, 0 0 5px #fff;
   transition: all 0.3s ease;
 }
 
