@@ -34,26 +34,26 @@
       }
       @media screen and (max-width: 768px){
         object-fit: cover;
-        margin-top: 40px;
+        margin-top: 0;
         object-position: center;
         user-select: none;
       }
       @media screen and (max-width: 425px){
         object-fit: cover;
         object-position: center;
-        margin-top: 40px;
+        margin-top: 0px;
         user-select: none;
       }
       @media screen and (max-width: 395px){
         object-fit: cover;
         object-position: center;
-        margin-top: 40px;
+        margin-top: 0px;
         user-select: none;
       }
       @media screen and (max-width: 376px){
         object-fit: cover;
         object-position: center;
-        margin-top: 40px;
+        margin-top: 0px;
         user-select: none;
       }
     }
@@ -189,6 +189,13 @@
       z-index: 3;
       
       @media screen and (max-width: 768px) {
+        margin-top: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      @media screen and (max-width: 425px) {
+        margin-top: 0%;
         display: flex;
         justify-content: center;
         align-items: center;

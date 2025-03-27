@@ -111,7 +111,7 @@
     transform: scale(0);
     position: fixed;
     right: 0px;
-    z-index: 4;
+    z-index: 99;
 
     .button{
         position: relative;
@@ -167,17 +167,24 @@
 
 @media screen and (max-width: 768px) {
     .nav{
-        padding-top: 15px;
+        display: none;
     }
     .header {
-        flex-direction: column;
-        padding: 10px 20px 20px 20px;
-        align-items: center;
+        display: none;
     }
     .logo{
-        color: black;
-        &:hover{
-            padding-left: 60px;
-        }
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav{
+        display: none;
+    }
+    .header {
+        display: none;
+    }
+    .logo{
+        display: none;
     }
 }
