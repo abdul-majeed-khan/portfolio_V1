@@ -3,11 +3,11 @@
 import Image from 'next/image';
 import styles from './style.module.scss';
 import { useRef, useLayoutEffect, useState, useEffect } from 'react';
+import Rounded from '../../common/RoundedButton';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { slideUp } from './animation';
 import { motion } from 'framer-motion';
-import Typewriter from 'typewriter-effect'; // Add this import
 
 export default function Home() {
 	const firstText = useRef(null);
@@ -15,38 +15,8 @@ export default function Home() {
 	const slider = useRef(null);
 	const [isLightOn, setIsLightOn] = useState(false);
 	const [isHovering, setIsHovering] = useState(false);
-	const [techLevel, setTechLevel] = useState(1); // Default to medium level
-	const [typingFade, setTypingFade] = useState(true);
-	const [sliderPosition, setSliderPosition] = useState(50);
-
-	// Map slider position to tech level
-	useEffect(() => {
-		// Map 0-100 range to tech levels
-		if (sliderPosition < 33.33) {
-		setTechLevel(0); // Less techy
-		} else if (sliderPosition < 66.66) {
-		setTechLevel(1); // Medium techy
-		} else {
-		setTechLevel(2); // More techy
-		}
-	}, [sliderPosition]);
-
-	const sliderFillStyle = {
-		background: 'linear-gradient(90deg, rgba(255, 170, 0, 0.4) ' + sliderPosition + '%, transparent 0%)',
-	};
-
-	// Update your tech level change handler
-	const handleTechLevelChange = (e) => {
-		// Get the value immediately
-		const newValue = parseInt(e.target.value);
-		
-		// Update state right away
-		setTechLevel(newValue);
-		
-		// Handle animations separately
-		setTypingFade(false);
-		setTimeout(() => setTypingFade(true), 100);
-	};
+	const [activeTab, setActiveTab] = useState('About');
+	const [time, setTime] = useState("");
 	
 	// Combined state for showing glow
 	const showGlow = isLightOn || isHovering;
@@ -54,42 +24,16 @@ export default function Home() {
 	let xPercent = 0;
 	let direction = -1;
 
-    const [time, setTime] = useState("");
-
-	// Three levels of about me descriptions
-	const aboutTexts = {
-		less: "I build websites and apps that work well. I also create smart systems that learn from data. I enjoy making technology simple and useful for everyone.",
-		medium: "I am a passionate Full-Stack Developer and Machine Learning Engineer with expertise in building modern web applications and implementing ML solutions. With a strong background in both frontend and backend technologies, I create seamless user experiences while implementing robust server-side logic. My journey in ML & MLOps has equipped me with the skills to develop, deploy, and maintain machine learning models in production environments.",
-		more: "I architect scalable web applications using React, Next.js, and Node.js with a focus on performance optimization, state management patterns, and responsive design principles. My backend expertise includes designing RESTful APIs, GraphQL endpoints, and microservices architecture with containerized deployment using Docker and orchestration with Kubernetes. In the ML domain, I specialize in computer vision and NLP using PyTorch and TensorFlow, with experience in designing neural network architectures, hyperparameter optimization, and deploying models with MLflow and Kubeflow for continuous training pipelines."
-	};
-
-	// Three levels of skills
-	const skillsData = {
-		0: ["Web", "Apps", "AI", "Data", "Cloud"],
-		1: ["React", "Node.js", "Python", "TensorFlow", "PyTorch", "Docker", "Kubernetes", "CI/CD"],
-		2: ["React/Next.js", "Redux/Context API", "Node.js/Express", "Django/Flask", "PyTorch/TensorFlow", "Computer Vision", "NLP/LLMs", "Kubernetes/EKS", "MLOps/Kubeflow", "CI/CD/GitOps"]
-	};
-
-	// Get current text based on tech level
-	const getCurrentText = () => {
-		switch(techLevel) {
-			case 0: return aboutTexts.less;
-			case 1: return aboutTexts.medium;
-			case 2: return aboutTexts.more;
-			default: return aboutTexts.medium;
-		}
-	};
-
 	useEffect(() => {
 		const updateTime = () => {
-			const indiaTime = new Date().toLocaleTimeString('en-IN', {
-				timeZone: 'Asia/Kolkata',
-				hour12: true,
-				hour: '2-digit',
-				minute: '2-digit',
-				second: '2-digit',
-			});
-			setTime(indiaTime);
+		  const dubaiTime = new Date().toLocaleTimeString('en-US', {
+			timeZone: 'Asia/Dubai',
+			hour12: true,
+			hour: '2-digit',
+			minute: '2-digit',
+			second: '2-digit',
+		  });
+		  setTime(dubaiTime);
 		};
 		updateTime();
 		const intervalId = setInterval(updateTime, 1000);
@@ -127,6 +71,196 @@ export default function Home() {
 		requestAnimationFrame(animate);
 	};
 
+	// Content for each tab
+	const tabContent = {
+		About: (
+			<div className={styles.tabContent}>
+				<div className={styles.terminalLine}>
+					<span className={styles.yellow}>$ who</span>
+					<br />
+					<span className={styles.white}>
+						I am an aspiring Machine Learning engineer currently pursuing an advanced LLM course at UC Berkeley. 
+						With over five years of experience as a creative and skilled designer, I have a strong background in crafting visually appealing web interfaces and Figma prototypes. 
+						I am proficient in design tools like Inkscape, Adobe Illustrator, and Photoshop.
+					</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.yellow}>$ tech</span>
+					<br />
+					<span className={styles.white}>
+					In addition to design, I specialize in web development, working with JavaScript, TypeScript, and frameworks like Next.js, React.js, and Node.js. 
+					My expertise extends to databases such as MongoDB and SQL, as well as Python for machine learning applications using libraries like Scikit-learn, PyTorch, and LangChain.
+					</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.yellow}>$ ethics</span>
+					<br />
+					<span className={styles.white}>
+					I thrive in a team-oriented environment while maintaining a high degree of autonomy and responsibility in my work. 
+					I transition quickly from ideation to development and design, ensuring efficiency in execution. 
+					While I may come off as shy, I am articulate and effective in communication.
+					</span>
+				</div>
+			</div>
+		),
+		Skills: (
+			<div className={styles.tabContent}>
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>Frontend:</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.white}>React.js / Next.js</span>
+					<div className={styles.terminalBar}>
+						<div className={styles.barFill} style={{ width: '92%' }}></div>
+					</div>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.white}>HTML / CSS / SCSS</span>
+					<div className={styles.terminalBar}>
+						<div className={styles.barFill} style={{ width: '90%' }}></div>
+					</div>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>Backend:</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.white}>Node.js / Express</span>
+					<div className={styles.terminalBar}>
+						<div className={styles.barFill} style={{ width: '85%' }}></div>
+					</div>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.white}>Python / Django</span>
+					<div className={styles.terminalBar}>
+						<div className={styles.barFill} style={{ width: '82%' }}></div>
+					</div>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>ML & Data:</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.white}>PyTorch / TensorFlow</span>
+					<div className={styles.terminalBar}>
+						<div className={styles.barFill} style={{ width: '88%' }}></div>
+					</div>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.white}>MLOps / Kubeflow</span>
+					<div className={styles.terminalBar}>
+						<div className={styles.barFill} style={{ width: '80%' }}></div>
+					</div>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>DevOps:</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.white}>Docker / Kubernetes</span>
+					<div className={styles.terminalBar}>
+						<div className={styles.barFill} style={{ width: '84%' }}></div>
+					</div>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.white}>CI/CD / GitHub Actions</span>
+					<div className={styles.terminalBar}>
+						<div className={styles.barFill} style={{ width: '86%' }}></div>
+					</div>
+				</div>
+			</div>
+		),
+		Experience: (
+			<div className={styles.tabContent}>
+				<div className={styles.terminalLine}>
+					<span className={styles.cyan}>$ cat experience.json</span>
+				</div>
+				<div className={styles.terminalLine + ' ' + styles.spacer}></div>
+				<div className={styles.terminalLine}>
+					<span className={styles.yellow}>{'[{'}</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>  "position":</span> <span className={styles.white}>"Senior Full-Stack Developer",</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>  "company":</span> <span className={styles.white}>"TechCorp Inc.",</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>  "period":</span> <span className={styles.white}>"2022 - Present",</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>  "achievements":</span> <span className={styles.white}>"Led development of web applications using React.js and Next.js. Implemented responsive designs and improved performance metrics by 40%."</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.yellow}>{'}, {'}</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>  "position":</span> <span className={styles.white}>"ML Engineer",</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>  "company":</span> <span className={styles.white}>"AI Solutions LLC",</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>  "period":</span> <span className={styles.white}>"2020 - 2022",</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>  "achievements":</span> <span className={styles.white}>"Developed and deployed machine learning models for computer vision and NLP tasks. Created MLOps pipelines for continuous training and model deployment."</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.yellow}>{'}]'}</span>
+				</div>
+			</div>
+		),
+		Certifications: (
+			<div className={styles.tabContent}>
+				<div className={styles.terminalLine}>
+					<span className={styles.cyan}>$ ls -la certificates/</span>
+				</div>
+				<div className={styles.terminalLine + ' ' + styles.spacer}></div>
+				
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>-rw-r--r--</span> <span className={styles.white}>1 abdul staff</span> <span className={styles.yellow}>Mar 2025</span> <span className={styles.white}>UCBSCS.crt</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.white}>UC Berkeley Advanced LLM Engineering</span>
+					<div className={styles.certificateDetails}>
+						<span className={styles.white}>• Specialized in large language model architectures and fine-tuning techniques</span>
+					</div>
+					<div className={styles.certificateDetails}>
+						<span className={styles.white}>• Developed advanced prompt engineering skills for various application scenarios</span>
+					</div>
+				</div>
+				
+				<div className={styles.terminalLine + ' ' + styles.spacer}></div>
+				
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>-rw-r--r--</span> <span className={styles.white}>1 abdul staff</span> <span className={styles.yellow}>Dec 2024</span> <span className={styles.white}>GCP-ML.crt</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.white}>Google Cloud Professional ML Engineer</span>
+					<div className={styles.certificateDetails}>
+						<span className={styles.white}>• Demonstrated expertise in designing, building and productionizing ML models on Google Cloud</span>
+					</div>
+					<div className={styles.certificateDetails}>
+						<span className={styles.white}>• Proficiency in ML systems design and implementation at enterprise scale</span>
+					</div>
+				</div>
+				
+				<div className={styles.terminalLine + ' ' + styles.spacer}></div>
+				
+				<div className={styles.terminalLine}>
+					<span className={styles.green}>-rw-r--r--</span> <span className={styles.white}>1 abdul staff</span> <span className={styles.yellow}>Jul 2023</span> <span className={styles.white}>AWS-DevOps.crt</span>
+				</div>
+				<div className={styles.terminalLine}>
+					<span className={styles.white}>AWS Certified DevOps Engineer Professional</span>
+					<div className={styles.certificateDetails}>
+						<span className={styles.white}>• Expertise in CI/CD implementation and deployment automation</span>
+					</div>
+					<div className={styles.certificateDetails}>
+						<span className={styles.white}>• Proficient in AWS infrastructure management and monitoring</span>
+					</div>
+				</div>
+			</div>
+		)
+	};
+
 	return (
 		<motion.main
 			variants={slideUp}
@@ -151,6 +285,13 @@ export default function Home() {
 						</span>
 					</div>
 
+					<motion.div className={styles.buttonContainer}>
+						<p>Got an Idea?</p>
+                        <Rounded className={styles.rounded}>
+                            <p>Let's Chat</p>
+                        </Rounded>
+                    </motion.div>
+
 					<div 
 					className={styles.hoverTarget}
 					onMouseEnter={() => setIsHovering(true)}
@@ -161,7 +302,8 @@ export default function Home() {
 					fill={true}
 					alt="cutout bulb"
 					quality={100}
-					priority={true}
+					priority
+ 					sizes="100vw"
 					className={styles.normalImage}
 					/>
 					<Image
@@ -183,8 +325,8 @@ export default function Home() {
 				<div className={styles.sliderContainer}>
 					<div ref={slider} className={styles.slider}>
 						<div>
-							<p ref={firstText}>Abdul Majeed —</p>
-							<p ref={secondText}>Abdul Majeed —</p>
+							<p ref={firstText}>Abdul Majeed — Abdul Majeed — Abdul Majeed — Abdul Majeed</p>
+							<p ref={secondText}></p>
 						</div>
 					</div>
 				</div>
@@ -205,8 +347,8 @@ export default function Home() {
 								y1="0%"
 								y2="0%"
 							>
-								<stop offset="0%" stopColor="#ffd700" />
-								<stop offset="100%" stopColor="#ffd700" />
+								<stop offset="0%" stopColor="#ffffff" />
+								<stop offset="100%" stopColor="#ffffff" />
 							</linearGradient>
 						</defs>
 						<path
@@ -216,64 +358,55 @@ export default function Home() {
 					</svg>
 					<p>Full-Stack Developer</p>
 					<p>ML & MLOps Engineer</p>
-					<p>India: {time}</p>
+					<p>Dubai: {time}</p>
 				</div>
 				
-				{/* About Content with Typewriter */}
-				<div className={styles.aboutContent}>
-					{/* <h2>About Me</h2> */}
-					
-					{/* Techiness Slider */}
-					<div className={styles.sliderContainer1}>
-						<span className={styles.sliderLabel}>Simplified</span>
-						<input 
-							type="range" 
-							min="0" 
-							max="100" 
-							step="1"
-							value={sliderPosition}  
-							onChange={(e) => setSliderPosition(parseInt(e.target.value))}
-							className={styles.techinessSlider}
-							style={sliderFillStyle}
-						/>
-						<span className={styles.sliderLabel}>Advanced</span>
-					</div>
-
-					{/* Typewriter Effect from package */}
-					<div className={styles.aboutText} style={{ opacity: typingFade ? 1 : 0.3 }}>
-						<Typewriter
-							onInit={(typewriter) => {
-								typewriter
-									.typeString(getCurrentText())
-									.start();
-							}}
-							options={{
-								delay: 20,
-								cursor: '|',
-								deleteSpeed: 5,
-							}}
-							key={techLevel} // Force re-render when tech level changes
-						/>
-					</div>
-					
-					{/* Skills */}
-					<div className={styles.skillsContainer}>
-						<h3>Skills</h3>
-						<div className={styles.skills}>
-							{skillsData[techLevel].map((skill, index) => (
-								<span 
-									key={`${skill}-${techLevel}`}
-									className={styles.skill}
-									style={{ 
-										animationDelay: `${index * 0.1}s`,
-										opacity: typingFade ? 1 : 0,
-										transform: typingFade ? 'translateY(0)' : 'translateY(10px)',
-										transition: 'opacity 0.4s ease, transform 0.4s ease'
-									}}
-								>
-									{skill}
-								</span>
-							))}
+				{/* Mac Terminal UI replacing the about content */}
+				<div className={styles.macTerminalContainer}>
+					<div className={styles.macTerminal}>
+						{/* Terminal Chrome */}
+						<div className={styles.terminalChrome}>
+							<div className={styles.windowControls}>
+								<div className={styles.control + ' ' + styles.close}></div>
+								<div className={styles.control + ' ' + styles.minimize}></div>
+								<div className={styles.control + ' ' + styles.maximize}></div>
+							</div>
+							<div className={styles.terminalTitle}>
+								<span>abdul@Mac ~ -zsh - {activeTab.toLowerCase()}</span>
+							</div>
+						</div>
+						
+						{/* Terminal Content with Background */}
+						<div className={styles.terminalContent}>
+							<div className={styles.terminalBackground}></div>
+							<div className={styles.terminalOverlay}></div>
+							
+							{/* Terminal Menu */}
+							<div className={styles.terminalMenu}>
+								{Object.keys(tabContent).map(tab => (
+									<div 
+										key={tab}
+										className={`${styles.menuItem} ${activeTab === tab ? styles.active : ''}`}
+										onClick={() => setActiveTab(tab)}
+									>
+										{tab}
+									</div>
+								))}
+							</div>
+							
+							{/* Terminal Output */}
+							<div className={styles.terminalOutput}>
+								<div className={styles.terminalInfo}>
+									{tabContent[activeTab]}
+								</div>
+							</div>
+							
+							{/* Command Prompt */}
+							<div className={styles.commandPrompt}>
+								<span className={styles.path}>~/portfolio</span>
+								<span className={styles.prompt}>$ </span>
+								<span className={styles.cursor}>|</span>
+							</div>
 						</div>
 					</div>
 				</div>
