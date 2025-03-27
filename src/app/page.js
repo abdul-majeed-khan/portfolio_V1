@@ -9,8 +9,6 @@ import { useScroll } from 'framer-motion';
 import { projects } from './data';
 import Projects from '../components/Projects';
 import { useRef } from 'react';
-import Description from '../components/Description';
-import SkillsSection from '../components/Skills';
 import Contact from '../components/Contact';
 
 export default function Home() {
@@ -54,14 +52,14 @@ export default function Home() {
         {isLoading && <Preloader />}
       </AnimatePresence>
       <Landing />
-      <Description />
-      <SkillsSection />
+      <div className={styles.project}>PROJECTS</div>
       {
         projects.map( (project, i) => {
           const targetScale = 1 - ( (projects.length - i) * 0.05);
           return <Projects key={`p_${i}`} i={i} {...project} progress={scrollYProgress} range={[i * .25, 1]} targetScale={targetScale}/>
         })
       }
+      <div style={{ height: "100vh" }}></div>
       <Contact />
     </main>
   )
