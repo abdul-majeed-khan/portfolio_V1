@@ -301,8 +301,7 @@ export default function Home() {
 					src="/images/bulb1.png"
 					fill={true}
 					alt="cutout bulb"
-					quality={100}
-					priority
+					unoptimized={true}
  					sizes="100vw"
 					className={styles.normalImage}
 					/>
@@ -310,14 +309,14 @@ export default function Home() {
 					src="/images/bulb7up.png"
 					fill={true}
 					alt="glowing bulb"
-					quality={100}
+					unoptimized={true}
 					className={`${styles.glowImage} ${showGlow ? styles.active : ''}`}
 					/>
 					<Image
 					src="/images/glow.png"
 					fill={true}
 					alt="glow"
-					quality={100}
+					unoptimized={true}
 					className={`${styles.glow} ${showGlow ? styles.active : ''}`}
 					/>
 				</div>
