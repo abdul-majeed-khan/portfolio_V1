@@ -8,7 +8,8 @@
   top: 0;
   padding: 2rem;
   margin: 0;
-  overflow: hidden;
+  overflow: hidden; /* This is key - contain any overflow */
+  box-sizing: border-box; /* Include padding in width calculation */
   
   @media (max-width: 768px) {
     top: 10%;
@@ -20,7 +21,7 @@
 }
 
 .card {
-  left: -35px;
+  /* Remove this if it exists: left: -35px; */
   width: 100%;
   max-width: 1700px;
   min-height: 800px;
@@ -29,14 +30,14 @@
   position: relative;
   
   @media (max-width: 768px) {
-    left: -15px;
-    max-width: 400px;
+    /* Remove this if it exists: left: -15px; */
+    max-width: 100%; /* Use percentage instead of fixed width */
     min-height: 300px;
   }
   
   @media (max-width: 480px) {
-    left: -15px;
-    max-width: 400px;
+    /* Remove this if it exists: left: -15px; */
+    max-width: 100%; /* Use percentage instead of fixed width */
     min-height: 300px;
   }
 }
@@ -122,6 +123,7 @@
   align-items: flex-end;
   z-index: 2;
   padding: 2rem;
+  box-sizing: border-box;
   
   @media (max-width: 768px) {
     padding: 1.5rem;
@@ -148,12 +150,12 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
   }
   
   @media (max-width: 480px) {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -168,7 +170,7 @@
   }
   
   @media (max-width: 480px) {
-    gap: 0.4rem;
+    gap: 0.3rem;
   }
 }
 
@@ -182,8 +184,8 @@
   font-weight: 500;
   
   @media (max-width: 480px) {
-    padding: 0.3rem 0.7rem;
-    font-size: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -192,6 +194,7 @@
   
   @media (max-width: 768px) {
     padding: 0;
+    width: 100%;
   }
 }
 
@@ -221,12 +224,12 @@
   }
 
   @media (max-width: 768px) {
-    padding: 0.4rem 1rem;
-    font-size: 0.7rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
   }
   
   @media (max-width: 480px) {
-    padding: 0.4rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
 }
