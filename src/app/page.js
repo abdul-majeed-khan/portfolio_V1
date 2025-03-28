@@ -5,62 +5,75 @@ import { AnimatePresence } from 'framer-motion';
 import Preloader from '../components/Preloader';
 import Landing from '../components/Landing';
 import Lenis from '@studio-freight/lenis'
-import { useScroll } from 'framer-motion';
-import { projects } from './data';
-import Projects from '../components/Projects';
-import { useRef } from 'react';
+import ProjectsSection from '../components/Projects/ProjectsSection';
 import Contact from '../components/Contact';
 
 export default function Home() {
-
   const [isLoading, setIsLoading] = useState(true);
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start start', 'end end']
-  })
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check for mobile view
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
-  useEffect( () => {
-    const lenis = new Lenis()
+  // Set up smooth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      smoothWheel: true,
+      smoothTouch: false,
+      lerp: isMobile ? 0.1 : 0.07,
+    });
 
     function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
+      lenis.raf(time);
+      requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf)
-  })
+    requestAnimationFrame(raf);
+    
+    return () => {
+      lenis.destroy();
+    };
+  }, [isMobile]);
 
-  useEffect( () => {
+  // Existing preloader code
+  useEffect(() => {
     (
       async () => {
           const LocomotiveScroll = (await import('locomotive-scroll')).default
           const locomotiveScroll = new LocomotiveScroll();
 
-          setTimeout( () => {
+          setTimeout(() => {
             setIsLoading(false);
-            document.body.style.cursor = 'default'
+            document.body.style.cursor = 'default';
             window.scrollTo(0,0);
-          }, 2000)
+          }, 2000);
+          
+          return () => {
+            if (locomotiveScroll) locomotiveScroll.destroy();
+          };
       }
     )()
-  }, [])
+  }, []);
 
   return (
-    <main ref={container} className={styles.main}>
+    <main className={styles.main}>
       <AnimatePresence mode='wait'>
         {isLoading && <Preloader />}
       </AnimatePresence>
+      
       <Landing />
-      <div className={styles.project}>PROJECTS</div>
-      {
-        projects.map( (project, i) => {
-          const targetScale = 1 - ( (projects.length - i) * 0.05);
-          return <Projects key={`p_${i}`} i={i} {...project} progress={scrollYProgress} range={[i * .25, 1]} targetScale={targetScale}/>
-        })
-      }
-      <div style={{ height: "100vh" }}></div>
+
+      <ProjectsSection />
+      
       <Contact />
     </main>
-  )
+  );
 }
