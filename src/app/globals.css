@@ -1,20 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap'); */
+/* Update your globals.css file with these changes */
 
-body{
+body {
     font-family: "Azeret Mono", monospace;
     margin: 0px;
-    overflow: hidden; 
-    cursor: wait;
+    /* Only apply overflow: hidden on desktop */
     background-color: black;
-    /* background-image: url('/images/page1.png'); */
     background-size: 100% 100%; 
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed; 
-    min-height: 100vh; 
-    @media screen and (max-width: 425px){
-        overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Use media queries to apply different overflow settings */
+@media screen and (min-width: 769px) {
+    body {
+        overflow: hidden; /* Only hide overflow on desktop */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        overflow-y: auto; /* Allow vertical scroll on mobile */
+        -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
     }
     
+    html, body {
+        height: auto; /* Allow content to determine height */
+        position: relative;
+    }
+    
+    .landing {
+        overflow-y: auto !important; /* Ensure the main container allows scrolling */
+        height: auto !important; /* Allow the container to expand with content */
+    }
+}
+
+/* Make sure elements are properly positioned for scrolling on mobile */
+@media screen and (max-width: 768px) {
+    .imageContainer {
+        position: relative !important; /* Change from absolute to relative on mobile */
+        height: auto !important;
+    }
+    
+    .combinedSection {
+        height: auto !important;
+    }
+    
+    .sliderContainer {
+        margin-top: 0 !important; /* Reset the margin that's pushing content down */
+        position: relative;
+    }
 }
