@@ -178,10 +178,6 @@ const Card = ({
           {src.endsWith('.webm') && (
             <motion.div 
               className={styles.playButtonOverlay}
-              initial={{ opacity: 0.8 }}
-              animate={{ opacity: isHovered ? 1 : 0.8 }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
               onClick={togglePlayPause}
             >
               <svg width="36" height="36" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
