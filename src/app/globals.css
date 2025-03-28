@@ -53,3 +53,28 @@ body {
         position: relative;
     }
 }
+
+/* Remove blue highlight on tap/click */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Allow text selection where needed (for input fields, etc.) */
+  input, textarea {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+  
+  /* For any links or buttons that might need specific styling */
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  /* Additional styling for interactive elements if needed */
+  .card, .mediaContainer, .playButtonOverlay, .link {
+    -webkit-tap-highlight-color: transparent;
+  }
