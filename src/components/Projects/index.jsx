@@ -10,10 +10,14 @@ const Card = ({
   src,
   link,
   color,
+  isMobile,
 }) => {
   const cardRef = useRef(null);
   const videoRef = useRef(null);
-  const isInView = useInView(cardRef, { once: false, amount: 0.5 });
+  const isInView = useInView(cardRef, { 
+    once: false, 
+    amount: isMobile ? 0.3 : 0.5 // More sensitive on mobile
+  });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -110,20 +114,51 @@ const Card = ({
     const video = videoRef.current;
     if (!video || !src.endsWith('.webm')) return;
     
-    if (!isInView && isPlaying) {
+    if (isInView) {
+      // Try to play the video when in view
+      video.play().then(() => {
+        setIsPlaying(true);
+      }).catch(error => {
+        console.log('Autoplay failed:', error);
+        
+        // For mobile, we need user interaction
+        if (isMobile) {
+          // Add a one-time touch event listener to play the video
+          const playVideoOnTouch = () => {
+            video.play().then(() => {
+              setIsPlaying(true);
+              // Remove the event listener after successful play
+              document.removeEventListener('touchstart', playVideoOnTouch);
+            }).catch(err => console.log('Play on touch failed:', err));
+          };
+          
+          document.addEventListener('touchstart', playVideoOnTouch, { once: true });
+        }
+      });
+    } else if (!isInView && isPlaying) {
+      // Pause when out of view
       video.pause();
       setIsPlaying(false);
     }
-  }, [isInView, isPlaying, src]);
+  }, [isInView, isPlaying, src, isMobile]);
+
+  const videoAttributes = {
+    ref: videoRef,
+    src: `/videos/${src}`,
+    className: styles.video,
+    controls: false,
+    autoPlay: false, // Set to false, we'll control this with JS
+    loop: true,
+    muted: true, // Must be muted for autoplay on mobile
+    playsInline: true, // Required for iOS
+    onClick: togglePlayPause,
+    preload: "metadata"
+  };
   
   return (
     <motion.div 
       ref={cardRef}
       className={styles.cardWrapper}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2 }}
-      transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
       id={`card-${id}`}
     >
       
@@ -149,7 +184,8 @@ const Card = ({
         {/* Main Media Container (now covers full card) */}
         <div className={styles.mediaContainer}>
           {src.endsWith('.webm') ? (
-            <video
+            <video 
+              {...videoAttributes}
               ref={videoRef}
               src={`/videos/${src}`}
               className={styles.video}
