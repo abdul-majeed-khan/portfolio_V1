@@ -56,7 +56,7 @@ export default function Index() {
                 </div>
                 <div className={styles.nav}>
                     <Magnetic>
-                        <div className={styles.el} onClick={() => scrollToSection('work')}>
+                        <div className={styles.el} onClick={() => scrollToSection('projects')}>
                             <a>Work</a>
                             <div className={styles.indicator}></div>
                         </div>
