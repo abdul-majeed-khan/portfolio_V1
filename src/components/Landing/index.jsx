@@ -361,7 +361,7 @@ export default function Home() {
 				</div>
 				
 				{/* Mac Terminal UI replacing the about content */}
-				<div className={styles.macTerminalContainer}>
+				<div className={styles.macTerminalContainer} id='about'>
 					<div className={styles.macTerminal}>
 						{/* Terminal Chrome */}
 						<div className={styles.terminalChrome}>
