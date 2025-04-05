@@ -11,19 +11,19 @@ export default function index() {
     <div className={styles.footer}>
       <Magnetic>
         <div className={styles.el}>
-        <a href='' target='_blank'>LinkedIn</a>
+        <a href='https://www.linkedin.com/in/abdul-majeed-khan/' target='_blank'>LinkedIn</a>
         <div className={styles.indicator}></div>
         </div>
       </Magnetic>
       <Magnetic>
         <div className={styles.el}>
-        <a href='' target='_blank'>GitHub</a>
+        <a href='https://github.com/abdul-majeed-khan' target='_blank'>GitHub</a>
         <div className={styles.indicator}></div>
         </div>
       </Magnetic>
       <Magnetic>
         <div className={styles.el}>
-        <a href='' target='_blank'>Twitter</a>
+        <a href='' target='https://x.com/Majeed_00_'>Twitter</a>
         <div className={styles.indicator}></div>
         </div>
       </Magnetic>
