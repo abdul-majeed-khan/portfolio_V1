@@ -1,7 +1,7 @@
 /* Update your globals.css file with these changes */
 
 body {
-    font-family: "Azeret Mono", monospace;
+    font-family: var(--font-azeret-mono), monospace;
     margin: 0px;
     /* Only apply overflow: hidden on desktop */
     background-color: black;

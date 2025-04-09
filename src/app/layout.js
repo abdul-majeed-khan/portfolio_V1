@@ -1,5 +1,5 @@
 import "./globals.css"
-import { Lexend } from 'next/font/google';
+import { Lexend, Azeret_Mono } from 'next/font/google';
 import Header from '../components/Header';
 import Script from "next/script"
 
@@ -11,6 +11,13 @@ const lexend = Lexend({
   weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
 });
 
+const azeretMono = Azeret_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-azeret-mono',
+  weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+});
+
 export const metadata = {
   title: "Abdul Majeed",
   description: "developed by Majeed",
@@ -18,7 +25,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={lexend.variable}>
+    <html lang="en" className={`${lexend.variable} ${azeretMono.variable}`}>
       <body >
         <Header />
         <Script

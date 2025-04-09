@@ -1,6 +1,6 @@
 .aiSection {
   min-height: 100vh;
-  font-family: "Azeret Mono", monospace;
+  font-family: var(--font-azeret-mono), monospace;
   width: 100%;
   background: linear-gradient(to bottom, #000000, #1a1a1a);
   position: relative;

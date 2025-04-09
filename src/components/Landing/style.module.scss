@@ -148,7 +148,7 @@
       z-index: 5;
       
       p{
-        font-family: "Azeret Mono", monospace;
+        font-family: var(--font-azeret-mono), monospace;
         margin: 0px;
         margin-bottom: 10px;
         font-size: 24px;
