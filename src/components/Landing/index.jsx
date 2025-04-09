@@ -177,10 +177,10 @@ export default function Home() {
 					<span className={styles.yellow}>{'[{'}</span>
 				</div>
 				<div className={styles.terminalLine}>
-					<span className={styles.green}>  "position":</span> <span className={styles.white}>"Senior Full-Stack Developer",</span>
+					<span className={styles.green}>  "position":</span> <span className={styles.white}>"Full-Stack Developer",</span>
 				</div>
 				<div className={styles.terminalLine}>
-					<span className={styles.green}>  "company":</span> <span className={styles.white}>"TechCorp Inc.",</span>
+					<span className={styles.green}>  "company":</span> <span className={styles.white}>"Platinum Square Real Estate",</span>
 				</div>
 				<div className={styles.terminalLine}>
 					<span className={styles.green}>  "period":</span> <span className={styles.white}>"2022 - Present",</span>
@@ -192,16 +192,16 @@ export default function Home() {
 					<span className={styles.yellow}>{'}, {'}</span>
 				</div>
 				<div className={styles.terminalLine}>
-					<span className={styles.green}>  "position":</span> <span className={styles.white}>"ML Engineer",</span>
+					<span className={styles.green}>  "position":</span> <span className={styles.white}>"Lead Web Designer",</span>
 				</div>
 				<div className={styles.terminalLine}>
-					<span className={styles.green}>  "company":</span> <span className={styles.white}>"AI Solutions LLC",</span>
+					<span className={styles.green}>  "company":</span> <span className={styles.white}>"Flawed Arts LLC",</span>
 				</div>
 				<div className={styles.terminalLine}>
 					<span className={styles.green}>  "period":</span> <span className={styles.white}>"2020 - 2022",</span>
 				</div>
 				<div className={styles.terminalLine}>
-					<span className={styles.green}>  "achievements":</span> <span className={styles.white}>"Developed and deployed machine learning models for computer vision and NLP tasks. Created MLOps pipelines for continuous training and model deployment."</span>
+					<span className={styles.green}>  "achievements":</span> <span className={styles.white}>"Developed different websites of the company's clients using Node.js , HTML , CSS , Bootstrap & PHP and eventually brought down the cost & increased the site speed by 30% deploying SEO."</span>
 				</div>
 				<div className={styles.terminalLine}>
 					<span className={styles.yellow}>{'}]'}</span>
