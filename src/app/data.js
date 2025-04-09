@@ -41,12 +41,12 @@ export const projects = [
 		link: 'https://z-audit.netlify.app/',
 		color: '#101010',
 	},
-	{
-		title: 'HooBank',
-		tags: ['UI/UX Design', 'React', 'CSS', 'Vite'],
-		src: 'hoob.webm',
-		link: 'https://incandescent-nougat-8ce230.netlify.app/',
-		color: '#101010',
-	},
+	// {
+	// 	title: 'HooBank',
+	// 	tags: ['UI/UX Design', 'React', 'CSS', 'Vite'],
+	// 	src: 'hoob.webm',
+	// 	link: 'https://incandescent-nougat-8ce230.netlify.app/',
+	// 	color: '#101010',
+	// },
 
 ];
