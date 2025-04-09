@@ -122,7 +122,7 @@
     
     .slider p{
       color: rgb(207, 207, 207);
-      font-family: "Lexend", "Arial", sans-serif;
+      font-family: var(--font-lexend), "Arial", sans-serif;
       position: relative;
       margin: 0px;
       font-size: 230px;

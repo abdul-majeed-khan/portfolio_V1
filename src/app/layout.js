@@ -1,7 +1,15 @@
 import "./globals.css"
+import { Lexend } from 'next/font/google';
 import Header from '../components/Header';
 import Script from "next/script"
 
+
+const lexend = Lexend({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-lexend',
+  weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+});
 
 export const metadata = {
   title: "Abdul Majeed",
@@ -10,7 +18,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={lexend.variable}>
       <body >
         <Header />
         <Script
