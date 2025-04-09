@@ -6,6 +6,7 @@ import Preloader from '../components/Preloader';
 import Landing from '../components/Landing';
 import Lenis from '@studio-freight/lenis'
 import ProjectsSection from '../components/Projects/ProjectsSection';
+import AISection from '../components/AI'
 import Contact from '../components/Contact';
 
 export default function Home() {
@@ -72,6 +73,8 @@ export default function Home() {
       <Landing />
 
       <ProjectsSection />
+      
+      <AISection />
       
       <Contact />
     </main>
