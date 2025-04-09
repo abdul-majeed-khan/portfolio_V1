@@ -13,11 +13,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
-  color: azure;
-  padding: 4rem 1rem;
   box-sizing: border-box;
   text-align: center;
+  h2 {
+    font-size: 4rem;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+  }
 }
 
 .projectsContainer {
