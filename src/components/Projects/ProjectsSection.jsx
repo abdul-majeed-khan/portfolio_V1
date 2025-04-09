@@ -28,7 +28,9 @@ const ProjectsSection = () => {
 
   return (
     <section className={styles.projectsSection} ref={containerRef} id='projects'>
-      <div className={styles.projectTitle}>PROJECTS</div>
+      <div className={styles.projectTitle}>
+        <h2>PROJECTS</h2>
+      </div>
       
       <div className={styles.projectsContainer}>
         {
