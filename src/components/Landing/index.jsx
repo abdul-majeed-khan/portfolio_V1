@@ -79,7 +79,7 @@ export default function Home() {
 				<span className={styles.yellow}>$ whoami</span>
 				<br />
 				<span className={styles.white}>
-					I’m a <span className={styles.bold}> full-stack developer </span> and aspiring <span className={styles.bold}> Machine Learning engineer </span> currently pursuing an advanced LLM course at UC Berkeley. 
+					I’m a <span className={styles.bold}>Full-Stack Developer</span> and aspiring <span className={styles.bold}>Machine Learning Engineer</span> currently pursuing an advanced LLM course at UC Berkeley. 
 					With a strong foundation in software engineering and AI, I bring a balance of practical development experience and deep interest in intelligent systems.
 				</span>
 				</div>
@@ -87,16 +87,16 @@ export default function Home() {
 				<span className={styles.yellow}>$ tech</span>
 				<br />
 				<span className={styles.white}>
-					I specialize in <span className={styles.bold}> web development </span> using JavaScript, TypeScript, and frameworks like Next.js, React.js, and Node.js. 
-					I'm skilled in working with <span className={styles.bold}> databases </span> such as MongoDB and PostgreSQL. 
-					On the <span className={styles.bold}> ML </span> side, I use Python with tools like Scikit-learn, PyTorch, and LangChain for building and experimenting with intelligent systems.
+					I specialize in <span className={styles.bold}>Web Development</span> using JavaScript, TypeScript, and frameworks like Next.js, React.js, and Node.js. 
+					I'm skilled in working with Databases such as MongoDB and PostgreSQL. 
+					On the <span className={styles.bold}>ML</span> side, I use Python with tools like Scikit-learn, PyTorch, and LangChain for building and experimenting with intelligent systems.
 				</span>
 				</div>
 				<div className={styles.terminalLine}>
 				<span className={styles.yellow}>$ design</span>
 				<br />
 				<span className={styles.white}>
-					With over <span className={styles.bold}> five years </span> of experience in design, I craft visually compelling interfaces and Figma prototypes. 
+					With over five years of <span className={styles.bold}> experience in design</span>, I craft visually compelling interfaces and Figma prototypes. 
 					I’m proficient with tools like Inkscape, Adobe Illustrator, and Photoshop, and I approach UI/UX with a developer’s mindset for seamless integration.
 				</span>
 				</div>
@@ -105,10 +105,11 @@ export default function Home() {
 				<br />
 				<span className={styles.white}>
 					I thrive in collaborative, team-driven environments while maintaining strong autonomy. 
-					I transition fluidly from ideation to development and design, ensuring <span className={styles.bold}> clarity and execution. </span> 
+					I transition fluidly from ideation to development and design, ensuring clarity and execution. 
 					I may be soft-spoken, but I communicate with precision and intention.
 				</span>
 				</div>
+
 
 			</div>
 		),
