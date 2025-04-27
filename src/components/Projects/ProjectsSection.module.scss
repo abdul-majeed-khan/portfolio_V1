@@ -32,3 +32,11 @@
 .projectWrapper {
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  
+  .projectTitle h2 {
+    font-size: 2rem;
+  }
+
+}
