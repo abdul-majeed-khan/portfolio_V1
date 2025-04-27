@@ -17,19 +17,22 @@ const AISection = () => {
       title: "LLM Development",
       description: "Fine-tuning and deployment of large language models using PyTorch and Transformers",
       tech: ["PyTorch", "Transformers", "CUDA", "TensorFlow"],
-      metrics: "95% accuracy in specific domain tasks"
+      metrics: "95% accuracy in specific domain tasks",
+      link: "https://github.com/neuralblades/LLM-V0"
     },
     {
       title: "Computer Vision",
       description: "Object detection and image segmentation for autonomous systems",
       tech: ["OpenCV", "YOLO", "PyTorch", "CNN"],
-      metrics: "Real-time processing at 60 FPS"
+      metrics: "Real-time processing at 60 FPS",
+      link: "https://github.com/neuralblades/hawkvision2.0"
     },
     {
       title: "MLOps Pipeline",
       description: "End-to-end ML pipeline development with monitoring and deployment",
       tech: ["Kubeflow", "MLflow", "Docker", "Kubernetes"],
-      metrics: "50% reduction in deployment time"
+      metrics: "50% reduction in deployment time",
+      link: "https://github.com/neuralblades/AI-Calling-Agent"
     }
   ];
 
@@ -41,7 +44,7 @@ const AISection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <h2>AI & ML EXPERTISE</h2>
+        <h2>ML EXPERTISE</h2>
         <div className={styles.gridLines}>
           {[...Array(20)].map((_, i) => (
             <div key={i} className={styles.line} 
@@ -79,6 +82,30 @@ const AISection = () => {
                 </div>
                 <span>{project.metrics}</span>
               </div>
+              {project.link && (
+                <a 
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.projectLink}
+                >
+                  View Project
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  >
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              )}
             </div>
             <div className={styles.cardBackground}>
               <div className={styles.grid}>

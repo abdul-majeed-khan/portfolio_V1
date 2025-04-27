@@ -2,7 +2,7 @@
   min-height: 100vh;
   font-family: var(--font-azeret-mono), monospace;
   width: 100%;
-  background: linear-gradient(to bottom, #000000, #1a1a1a);
+  background: black;
   position: relative;
   overflow: hidden;
 }
@@ -120,6 +120,33 @@
   span {
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.8rem;
+  }
+}
+
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    
+    svg {
+      transform: translate(2px, -2px);
+    }
+  }
+  
+  svg {
+    transition: transform 0.3s ease;
   }
 }
 

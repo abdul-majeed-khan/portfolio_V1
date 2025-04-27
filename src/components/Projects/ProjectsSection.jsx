@@ -29,7 +29,7 @@ const ProjectsSection = () => {
   return (
     <section className={styles.projectsSection} ref={containerRef} id='projects'>
       <div className={styles.projectTitle}>
-        <h2>PROJECTS</h2>
+        <h2>WEB DEVELOPMENT</h2>
       </div>
       
       <div className={styles.projectsContainer}>
