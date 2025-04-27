@@ -76,31 +76,40 @@ export default function Home() {
 		About: (
 			<div className={styles.tabContent}>
 				<div className={styles.terminalLine}>
-					<span className={styles.yellow}>$ who</span>
-					<br />
-					<span className={styles.white}>
-						I am an aspiring Machine Learning engineer currently pursuing an advanced LLM course at UC Berkeley. 
-						With over five years of experience as a creative and skilled designer, I have a strong background in crafting visually appealing web interfaces and Figma prototypes. 
-						I am proficient in design tools like Inkscape, Adobe Illustrator, and Photoshop.
-					</span>
+				<span className={styles.yellow}>$ whoami</span>
+				<br />
+				<span className={styles.white}>
+					I’m a <span className={styles.bold}> full-stack developer </span> and aspiring <span className={styles.bold}> Machine Learning engineer </span> currently pursuing an advanced LLM course at UC Berkeley. 
+					With a strong foundation in software engineering and AI, I bring a balance of practical development experience and deep interest in intelligent systems.
+				</span>
 				</div>
 				<div className={styles.terminalLine}>
-					<span className={styles.yellow}>$ tech</span>
-					<br />
-					<span className={styles.white}>
-					In addition to design, I specialize in web development, working with JavaScript, TypeScript, and frameworks like Next.js, React.js, and Node.js. 
-					My expertise extends to databases such as MongoDB and SQL, as well as Python for machine learning applications using libraries like Scikit-learn, PyTorch, and LangChain.
-					</span>
+				<span className={styles.yellow}>$ tech</span>
+				<br />
+				<span className={styles.white}>
+					I specialize in <span className={styles.bold}> web development </span> using JavaScript, TypeScript, and frameworks like Next.js, React.js, and Node.js. 
+					I'm skilled in working with <span className={styles.bold}> databases </span> such as MongoDB and PostgreSQL. 
+					On the <span className={styles.bold}> ML </span> side, I use Python with tools like Scikit-learn, PyTorch, and LangChain for building and experimenting with intelligent systems.
+				</span>
 				</div>
 				<div className={styles.terminalLine}>
-					<span className={styles.yellow}>$ ethics</span>
-					<br />
-					<span className={styles.white}>
-					I thrive in a team-oriented environment while maintaining a high degree of autonomy and responsibility in my work. 
-					I transition quickly from ideation to development and design, ensuring efficiency in execution. 
-					While I may come off as shy, I am articulate and effective in communication.
-					</span>
+				<span className={styles.yellow}>$ design</span>
+				<br />
+				<span className={styles.white}>
+					With over <span className={styles.bold}> five years </span> of experience in design, I craft visually compelling interfaces and Figma prototypes. 
+					I’m proficient with tools like Inkscape, Adobe Illustrator, and Photoshop, and I approach UI/UX with a developer’s mindset for seamless integration.
+				</span>
 				</div>
+				<div className={styles.terminalLine}>
+				<span className={styles.yellow}>$ ethics</span>
+				<br />
+				<span className={styles.white}>
+					I thrive in collaborative, team-driven environments while maintaining strong autonomy. 
+					I transition fluidly from ideation to development and design, ensuring <span className={styles.bold}> clarity and execution. </span> 
+					I may be soft-spoken, but I communicate with precision and intention.
+				</span>
+				</div>
+
 			</div>
 		),
 		Skills: (
