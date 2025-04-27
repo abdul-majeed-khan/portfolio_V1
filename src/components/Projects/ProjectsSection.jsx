@@ -40,8 +40,6 @@ const ProjectsSection = () => {
           })
         }
       </div>
-      
-      <div className={styles.spacer}></div>
     </section>
   );
 };
