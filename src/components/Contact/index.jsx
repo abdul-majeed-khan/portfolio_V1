@@ -58,7 +58,7 @@ export default function Contact() {
                         <h2>Together</h2>
                     </span>
                     <motion.div style={{x}} className={styles.buttonContainer}>
-                        <Rounded className={styles.rounded}>
+                        <Rounded className={styles.rounded} onClick={() => {window.open('mailto:abdulmajeed301100@gmail.com?subject=Project%20Inquiry&body=Hi%20Abdul,%20I%20have%20a%20project%20idea%20to%20discuss.', '_blank');}}>
                             <p>Get in touch</p>
                         </Rounded>
                     </motion.div>
@@ -109,7 +109,7 @@ export default function Contact() {
                                 </a>
                             </Magnetic>
                             <Magnetic>
-                                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+                                <a href="https://drive.google.com/file/d/1FPKOmgQrzf78610_R3dGP70XdD33BFJG/view?usp=sharing" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
                                     <FaFileAlt size={22} />
                                 </a>
                             </Magnetic>

@@ -297,7 +297,7 @@ export default function Home() {
 
 					<motion.div className={styles.buttonContainer}>
 						<p>Got an Idea?</p>
-                        <Rounded className={styles.rounded}>
+                        <Rounded className={styles.rounded} onClick={() => {window.open('https://wa.me/971588046607', '_blank', 'noopener,noreferrer');}}>
                             <p>Let's Chat</p>
                         </Rounded>
                     </motion.div>
