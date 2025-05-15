@@ -33,7 +33,7 @@ export const metadata = {
     siteName: "Abdul Majeed Portfolio",
     images: [
       {
-        url: "/og.jpg",
+        url: "/images/og.jpg",
         width: 1200,
         height: 630,
         alt: "Abdul Majeed - Full Stack Developer & ML Engineer",
@@ -46,7 +46,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Abdul Majeed | Full Stack Developer & ML Engineer",
     description: "Full Stack Developer and Machine Learning Engineer specializing in React, Next.js, and AI solutions. View my portfolio and projects.",
-    images: ["/twitter.jpg"],
+    images: ["/images/twitter.jpg"],
     creator: "@NeuralBlades",
   },
   robots: {
